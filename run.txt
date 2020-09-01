@@ -1,0 +1,7 @@
+cd C:\Users\Admin\Desktop\Prj\Prj_sem1\MilkTeaMiniShopManagement
+cd C:\Users\Admin\Desktop\Prj\Prj_sem1\MilkTeaMiniShopManagement\target
+mvn compile
+mnv package
+mvn clean dependency:copy-dependencies package
+cd ./target
+java -jar MilkTeaMiniShopManagement-1.0-SNAPSHOT.jar

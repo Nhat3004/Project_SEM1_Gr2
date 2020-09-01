@@ -102,7 +102,7 @@ public class StaffIU {
                 drink.setQuantity(quantity);
                 dr.add(drink);
             }
-            System.out.print("> Enter [S,s] to save and print invoice/ other key add new drink:");
+            System.out.print("> Enter [S,s] to save and print invoice/ other key add new drink: ");
             choice = scn().nextLine();
             if (choice.equals("S") || choice.equals("s")) {
                 save = true;
@@ -136,12 +136,13 @@ public class StaffIU {
             LocalDateTime localDateTime2 = LocalDateTime.parse(in.getDate(), formatter);
             long time = java.time.Duration.between(localDateTime2, localDateTime1).toMinutes();
             if (time > 60.0 && staffID == in.getStaffId()) {
-                System.out.println("you can only update this invoice within 60 minutes of it being created.");
+                System.out.println("You can only update this invoice within 60 minutes of it being created.");
                 invoiceID = 0;
             } else if (staffID != in.getStaffId()) {
                 System.out.println("You are not allow to update this invoice!");
                 invoiceID = 0;
             } else if (time <= 60 && staffID == in.getStaffId()) {
+                System.out.println("+------------------------------------------------------------------+");
                 System.out.println("+------------------------------------------------------------------+");
                 int i = 1;
                 for (Drink drink : lst) {
@@ -210,32 +211,37 @@ public class StaffIU {
                             String.format("%,.0f", total));
                 }
             } while (received < total);
-            System.out.println("\n+---------------------------------------------------------------------+");
-            System.out.println(sh);
-            System.out.println("+---------------------------------------------------------------------+");
-            System.out.println("|                            INVOICE                                  |");
-            System.out.println("+---------------------------------------------------------------------+");
-            System.out.printf("> Invoice code: %d\n", in.getId());
-            System.out.printf("> Date: %s.\n", in.getDate());
-            System.out.printf("> Staff: %s, tel: %s.\n", st.getName(), st.getTel());
-            System.out.println("+---------------------------------------------------------------------+");
+            System.out.println("\n+-----------------------------------------------+");
+            System.out.printf("> %-45s <\n> Tel: %-40s <\n> Address: %-36s <\n", sh.getName(), sh.getTel(), sh.getAddress());
+            System.out.println("+-----------------------------------------------+");
+            System.out.println("|                     INVOICE                   |");
+            System.out.println("+-----------------------------------------------+");
+            System.out.printf("> Invoice code: %-32d<\n", in.getId());
+            System.out.printf("> Date: %-40s<\n", in.getDate());
+            System.out.printf("> Staff: %s, tel: %s      <\n", st.getName(), st.getTel());
+            System.out.println("+-----------------------------------------------+");
+            System.out.println("| No.| Name                                     |");
+            System.out.println("| Unit Price   | Quantity | Amount              |");
+            System.out.println("+-----------------------------------------------+");
             for (Drink drink : lst) {
-                System.out.printf("| %2d| %-30s| %10s| %5d| %10sVND|\n", i, drink.getName(),
+                System.out.printf("| %2d | %-40s |\n| %12s | %8d | %17sVND|\n", i, drink.getName(),
                         String.format("%,.0f", drink.getUnitPrice()), drink.getQuantity(),
                         String.format("%,.0f", drink.getAmount()));
+                System.out.println("|-----------------------------------------------|");
+
                 i++;
             }
             refund = received - total;
-            System.out.println("+---------------------------------------------------------------------+");
-            System.out.printf("|                                        Total:    %16sVND|\n",
+            System.out.println("+-----------------------------------------------+");
+            System.out.printf("|                  Total:    %16sVND|\n",
                     String.format("%,.0f", total));
-            System.out.printf("|                                        Received: %16sVND|\n",
+            System.out.printf("|                  Received: %16sVND|\n",
                     String.format("%,.0f", received));
-            System.out.printf("|                                        Refund:   %16sVND|\n",
+            System.out.printf("|                  Refund:   %16sVND|\n",
                     String.format("%,.0f", refund));
-            System.out.println("+---------------------------------------------------------------------+");
-            System.out.println("|                 Get your laughing gear round this!                  |");
-            System.out.println("+---------------------------------------------------------------------+\n\n\n");
+            System.out.println("+-----------------------------------------------+");
+            System.out.println("|       Get your laughing gear round this!      |");
+            System.out.println("+-----------------------------------------------+\n\n\n");
         }
 
     }

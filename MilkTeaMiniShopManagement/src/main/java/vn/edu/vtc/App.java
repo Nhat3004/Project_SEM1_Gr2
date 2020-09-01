@@ -1,6 +1,8 @@
 package vn.edu.vtc;
 
 import vn.edu.vtc.iu.LoginIU;
+import vn.edu.vtc.iu.StaffIU;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -11,7 +13,8 @@ public class App {
             System.out.println("| Connection Error!                                 |");
             System.out.println(ex);
         }
-        LoginIU.login();
+        StaffIU.printInvoice(1);
+        // LoginIU.login();
         System.out.println("\nSee you later!");
         System.out.println("|~~~~~~~~~~~_~~~~~~~~~~~~~~~|\n" +
                 "|       .__(.)< (MEOW,MEOW) |\n" +
