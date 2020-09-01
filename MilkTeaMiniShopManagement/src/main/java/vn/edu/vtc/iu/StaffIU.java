@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class StaffIU {
     private static Scanner scn() {
         return new Scanner(System.in);
@@ -75,13 +74,14 @@ public class StaffIU {
             do {
                 System.out.print("> Drink code: ");
                 code = scn().nextLine();
-//                Drink drink1 = getByCode(code);
+                // Drink drink1 = getByCode(code);
                 Drink drink1 = DrinkBL.getByCode(code);
                 if (drink1.getCode() == null) {
                     System.out.println("> Drink isn't existed!");
                     isExist = false;
                 } else {
-                    System.out.printf(" %s: %10sVND\n", drink1.getName(), String.format("%,.0f", drink1.getUnitPrice()));
+                    System.out.printf(" %s: %10sVND\n", drink1.getName(),
+                            String.format("%,.0f", drink1.getUnitPrice()));
                     isExist = true;
                 }
             } while (!isExist);
@@ -137,13 +137,17 @@ public class StaffIU {
             long time = java.time.Duration.between(localDateTime2, localDateTime1).toMinutes();
             if (time > 60.0 && staffID == in.getStaffId()) {
                 System.out.println("you can only update this invoice within 60 minutes of it being created.");
+                invoiceID = 0;
             } else if (staffID != in.getStaffId()) {
                 System.out.println("You are not allow to update this invoice!");
+                invoiceID = 0;
             } else if (time <= 60 && staffID == in.getStaffId()) {
                 System.out.println("+------------------------------------------------------------------+");
                 int i = 1;
                 for (Drink drink : lst) {
-                    System.out.printf("| %2d| %-30s| %10s| %5d| %10s|\n", i, drink.getName(), String.format("%,.0f", drink.getUnitPrice()), drink.getQuantity(), String.format("%,.0f", drink.getAmount()));
+                    System.out.printf("| %2d| %-30s| %10s| %5d| %10s|\n", i, drink.getName(),
+                            String.format("%,.0f", drink.getUnitPrice()), drink.getQuantity(),
+                            String.format("%,.0f", drink.getAmount()));
                     i++;
                 }
                 System.out.println("+------------------------------------------------------------------+\n");
@@ -187,7 +191,7 @@ public class StaffIU {
         in = InvoiceDAL.getInvoiceByID(id);
         double received, refund;
         if (in.getId() == 0) {
-//            System.out.println("> Invoice doesn't exist.");
+            // System.out.println("> Invoice doesn't exist.");
         } else {
             lst = InvoiceDAL.getInvoiceDetails(id);
             Staff st = StaffDAL.getStaffByID(in.getStaffId());
@@ -202,7 +206,8 @@ public class StaffIU {
                 System.out.print("> Money given by customer: ");
                 received = scn().nextDouble();
                 if (received < total) {
-                    System.out.printf("Money given by customer must be greater than total payment: %10sVND\n", String.format("%,.0f", total));
+                    System.out.printf("Money given by customer must be greater than total payment: %10sVND\n",
+                            String.format("%,.0f", total));
                 }
             } while (received < total);
             System.out.println("\n+---------------------------------------------------------------------+");
@@ -215,14 +220,19 @@ public class StaffIU {
             System.out.printf("> Staff: %s, tel: %s.\n", st.getName(), st.getTel());
             System.out.println("+---------------------------------------------------------------------+");
             for (Drink drink : lst) {
-                System.out.printf("| %2d| %-30s| %10s| %5d| %10sVND|\n", i, drink.getName(), String.format("%,.0f", drink.getUnitPrice()), drink.getQuantity(), String.format("%,.0f", drink.getAmount()));
+                System.out.printf("| %2d| %-30s| %10s| %5d| %10sVND|\n", i, drink.getName(),
+                        String.format("%,.0f", drink.getUnitPrice()), drink.getQuantity(),
+                        String.format("%,.0f", drink.getAmount()));
                 i++;
             }
             refund = received - total;
             System.out.println("+---------------------------------------------------------------------+");
-            System.out.printf("|                                        Total:    %16sVND|\n", String.format("%,.0f", total));
-            System.out.printf("|                                        Received: %16sVND|\n", String.format("%,.0f", received));
-            System.out.printf("|                                        Refund:   %16sVND|\n", String.format("%,.0f", refund));
+            System.out.printf("|                                        Total:    %16sVND|\n",
+                    String.format("%,.0f", total));
+            System.out.printf("|                                        Received: %16sVND|\n",
+                    String.format("%,.0f", received));
+            System.out.printf("|                                        Refund:   %16sVND|\n",
+                    String.format("%,.0f", refund));
             System.out.println("+---------------------------------------------------------------------+");
             System.out.println("|                 Get your laughing gear round this!                  |");
             System.out.println("+---------------------------------------------------------------------+\n\n\n");
