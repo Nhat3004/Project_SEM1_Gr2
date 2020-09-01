@@ -42,6 +42,6 @@ public class Shop {
     public String toString() {
         return name +
                 "\nTel: " + tel +
-                ", address: " + address;
+                "\nAddress: " + address;
     }
 }
