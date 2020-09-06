@@ -60,11 +60,13 @@ public class ManagerIU {
             System.out.println("+-----------+------------------------------------+-----------+------+");
             if (i <= ls.size() / 10) {
                 for (int j = i * 10 - 10; j < i * 10; j++) {
-                    System.out.printf("| %-10s| %-35s| %10.1f| %5d|\n", ls.get(j).getCode(), ls.get(j).getName(), ls.get(j).getUnitPrice(), ls.get(j).getSold());
+                    System.out.printf("| %-10s| %-35s| %10.1f| %5d|\n", ls.get(j).getCode(), ls.get(j).getName(),
+                            ls.get(j).getUnitPrice(), ls.get(j).getSold());
                 }
             } else {
                 for (int j = i * 10 - 10; j < ls.size(); j++) {
-                    System.out.printf("| %-10s| %-35s| %10.1f| %5d|\n", ls.get(j).getCode(), ls.get(j).getName(), ls.get(j).getUnitPrice(), ls.get(j).getSold());
+                    System.out.printf("| %-10s| %-35s| %10.1f| %5d|\n", ls.get(j).getCode(), ls.get(j).getName(),
+                            ls.get(j).getUnitPrice(), ls.get(j).getSold());
                 }
             }
             System.out.println("+-----------+------------------------------------+-----------+------+");
@@ -89,6 +91,8 @@ public class ManagerIU {
             if (DrinkBL.getByCode(drink.getCode()).getCode() != null) {
                 System.out.println("Drink is existed!");
                 isExist = true;
+            } else {
+                isExist = false;
             }
         } while (isExist);
         System.out.print(">Input name of drink: ");
@@ -124,7 +128,8 @@ public class ManagerIU {
                 isExist = false;
             } else {
                 System.out.println("+-----------+------------------------------------+-----------+------+");
-                System.out.printf("| %-10s| %-35s| %-10s| %-5d|\n", drink.getCode(), drink.getName(), String.format("%,.0f", drink.getUnitPrice()), drink.getSold());
+                System.out.printf("| %-10s| %-35s| %-10s| %-5d|\n", drink.getCode(), drink.getName(),
+                        String.format("%,.0f", drink.getUnitPrice()), drink.getSold());
                 System.out.println("+-----------+------------------------------------+-----------+------+");
                 isExist = true;
             }
