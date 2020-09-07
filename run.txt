@@ -4,4 +4,4 @@ mvn compile
 mnv package
 mvn clean dependency:copy-dependencies package
 cd ./target
-java -jar MilkTeamMiniShopManagement-1.0-SNAPSHOT.jar
+java -jar MilkTeaMiniShopManagement-1.0-SNAPSHOT.jar
