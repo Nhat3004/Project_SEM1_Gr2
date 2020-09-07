@@ -62,9 +62,31 @@ public class StaffIU {
     private static int createOrder(int staffID, int shopID) {
         int idInvoice = 1;
         boolean save = false;
+        boolean isTrue = false;
+        int ice, sugar;
 
         List<Drink> dr = new ArrayList<>();
-        idInvoice = InvoiceBL.insertInvoice(staffID, shopID);
+        do {
+            System.out.print("> Percentage of ice(30-70): ");
+            ice = scn().nextInt();
+            if (ice >= 30 && ice <= 70) {
+                isTrue = false;
+            } else {
+                isTrue = true;
+                System.out.println("Percentage of ice must between 30 &70!");
+            }
+        } while (isTrue);
+        do {
+            System.out.print("> Percentage of sugar(30-70): ");
+            sugar = scn().nextInt();
+            if (sugar >= 30 && ice <= 70) {
+                isTrue = false;
+            } else {
+                isTrue = true;
+                System.out.println("Percentage of ice must between 30 &70!");
+            }
+        } while (isTrue);
+        idInvoice = InvoiceBL.insertInvoice(staffID, shopID, ice, sugar);
         do {
             String code;
             String choice;
@@ -212,13 +234,15 @@ public class StaffIU {
                 }
             } while (received < total);
             System.out.println("\n+-----------------------------------------------+");
-            System.out.printf("> %-45s <\n> Tel: %-40s <\n> Address: %-36s <\n", sh.getName(), sh.getTel(), sh.getAddress());
+            System.out.printf("> %-45s <\n> Tel: %-40s <\n> Address: %-36s <\n", sh.getName(), sh.getTel(),
+                    sh.getAddress());
             System.out.println("+-----------------------------------------------+");
             System.out.println("|                     INVOICE                   |");
             System.out.println("+-----------------------------------------------+");
             System.out.printf("> Invoice code: %-32d<\n", in.getId());
             System.out.printf("> Date: %-40s<\n", in.getDate());
-            System.out.printf("> Staff: %s, tel: %s      <\n", st.getName(), st.getTel());
+            System.out.printf("> Staff: %s, tel: %s%7s\n", st.getName(), st.getTel(), "<");
+            System.out.printf("> Ice: %2d%%, Sugar: %2d%% %26s\n", in.getIce(), in.getSugar(), "<");
             System.out.println("+-----------------------------------------------+");
             System.out.println("| No.| Name                                     |");
             System.out.println("| Unit Price   | Quantity | Amount              |");
@@ -233,12 +257,9 @@ public class StaffIU {
             }
             refund = received - total;
             System.out.println("+-----------------------------------------------+");
-            System.out.printf("|                  Total:    %16sVND|\n",
-                    String.format("%,.0f", total));
-            System.out.printf("|                  Received: %16sVND|\n",
-                    String.format("%,.0f", received));
-            System.out.printf("|                  Refund:   %16sVND|\n",
-                    String.format("%,.0f", refund));
+            System.out.printf("|                  Total:    %16sVND|\n", String.format("%,.0f", total));
+            System.out.printf("|                  Received: %16sVND|\n", String.format("%,.0f", received));
+            System.out.printf("|                  Refund:   %16sVND|\n", String.format("%,.0f", refund));
             System.out.println("+-----------------------------------------------+");
             System.out.println("|       Get your laughing gear round this!      |");
             System.out.println("+-----------------------------------------------+\n\n\n");

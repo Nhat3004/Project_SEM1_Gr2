@@ -8,8 +8,8 @@ import java.util.List;
 public class InvoiceBL {
     private static InvoiceDAL dal = new InvoiceDAL();
 
-    public static int insertInvoice(int staffID, int shopID) {
-        return dal.insertInvoice(staffID, shopID);
+    public static int insertInvoice(int staffID, int shopID, int ice, int sugar) {
+        return dal.insertInvoice(staffID, shopID, ice, sugar);
     }
 
     public static boolean insertInvoiceDetails(int invoiceID, String drinkCode, int quantity) {

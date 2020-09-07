@@ -4,6 +4,8 @@ public class Invoice {
     private int id;
     private int shopId;
     private int staffId;
+    private int ice;
+    private int sugar;
     private String date;
 
     public int getId() {
@@ -30,6 +32,22 @@ public class Invoice {
         this.staffId = staffId;
     }
 
+    public int getIce() {
+        return ice;
+    }
+
+    public void setIce(int ice) {
+        this.ice = ice;
+    }
+
+    public int getSugar() {
+        return sugar;
+    }
+
+    public void setSugar(int sugar) {
+        this.sugar = sugar;
+    }
+
     public String getDate() {
         return date;
     }
@@ -38,7 +56,7 @@ public class Invoice {
         this.date = date;
     }
 
-   @Override
+    @Override
     public String toString() {
         return "Invoice{" +
                 "id=" + id +
