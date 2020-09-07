@@ -12,8 +12,8 @@ public class App {
             System.out.println("| Connection Error!                                 |");
             System.out.println(ex);
         }
-        StaffIU.printInvoice(1);
-        // LoginIU.login();
+        // StaffIU.printInvoice(1);
+        LoginIU.login();
         System.out.println("\nSee you later!");
         System.out.println("|~~~~~~~~~~~_~~~~~~~~~~~~~~~|\n" +
                 "|       .__(.)< (MEOW,MEOW) |\n" +
