@@ -3,7 +3,6 @@ package vn.edu.vtc;
 import vn.edu.vtc.iu.LoginIU;
 import java.sql.Connection;
 import java.sql.SQLException;
-import vn.edu.vtc.iu.*;
 
 public class App {
     public static void main(String[] args) throws SQLException {
