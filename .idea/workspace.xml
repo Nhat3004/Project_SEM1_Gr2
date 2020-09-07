@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="67d421cc-d43e-4f79-93f4-160a624c2fdd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MilkTeaMiniShopManagement/src/main/java/vn/edu/vtc/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/MilkTeaMiniShopManagement/src/main/java/vn/edu/vtc/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MilkTeaMiniShopManagement/src/main/java/vn/edu/vtc/dal/InvoiceDAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/MilkTeaMiniShopManagement/src/main/java/vn/edu/vtc/dal/InvoiceDAL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MilkTeaMiniShopManagement/src/main/java/vn/edu/vtc/iu/StaffIU.java" beforeDir="false" afterPath="$PROJECT_DIR$/MilkTeaMiniShopManagement/src/main/java/vn/edu/vtc/iu/StaffIU.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MilkTeaMiniShopManagement/src/main/java/vn/edu/vtc/persistance/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/MilkTeaMiniShopManagement/src/main/java/vn/edu/vtc/persistance/Invoice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/CreateTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Database/CreateTable.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/InsertData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Database/InsertData.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
