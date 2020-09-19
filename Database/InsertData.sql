@@ -82,8 +82,8 @@ insert into Drink(drink_code, drink_name, drink_unit_price)
         ('TOPPING7', 'Cream Mousse', 10000),
         ('TOPPING8', 'White Pearl', 10000);
         
-call sp_insertInvoice(1,1, 30,30);
-call sp_insertInvoiceDetails(1,'HD02', 10);
-call sp_insertInvoiceDetails(1,'HD01', 10);
-call sp_insertInvoiceDetails(1,'YY07', 10);
-call sp_insertInvoiceDetails(1,'YY06', 10);
+call sp_insertInvoice(1,1);
+call sp_insertInvoiceDetails(1,'HD02', 10, 30,30);
+call sp_insertInvoiceDetails(1,'HD01', 10,0,0);
+call sp_insertInvoiceDetails(1,'YY07', 10,0,0);
+call sp_insertInvoiceDetails(1,'YY06', 10,0,0);
